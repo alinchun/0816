@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用js串api</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+
+</head>
+
+<body>
+    
+
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>年度</th>
+                <th>地區別</th>
+                <th>特用作物類別</th>
+                <th>種植面積</th>
+                <th>收穫面積</th>
+                <th>每公頃平均產量</th>
+                <th>產量</th>                
+            </tr>
+        </thead>
+        <tbody id="myTbody">
+
+        </tbody>
+    </table>
+
+    <script src="./tea_api.js"></script>
+
+
+    <script>
+
+
+        $(function () {
+            const myTable = $('#myTable');
+            const myTbody = $('#myTbody');
+
+            let content = '';
+            for (let i = 0; i < data.length; i++) {
+                content = content +           
+            `<tr>
+                <td>${data[i]["年度"]}</td>
+                <td>${data[i]["地區別"]}</td>
+                <td>${data[i]["特用作物類別"]}</td>
+                <td>${data[i]["種植面積"]}</td>
+                <td>${data[i]["收穫面積"]}</td>
+                <td>${data[i]["每公頃平均產量"]}</td>
+                <td>${data[i]["產量"]}</td>
+            </tr>
+            `;}
+            
+
+            myTbody.html(content);
+            myTable.DataTable();
+        });
+    </script>
+
+
+
+</body>
+
+</html>
